@@ -22,4 +22,14 @@ RSpec.describe RuboCop::Cop::Lint::ForbidCsvRead do
       expect(cop.highlights).to eq([])
     end
   end
+
+  context 'receiver is nil' do
+    it 'Does not raise ForbidCsvRead' do
+      inspect_source(cop, 'p "abc"')
+      expect(cop.messages)
+        .to eq([])
+      expect(cop.offenses.size).to eq(0)
+      expect(cop.highlights).to eq([])
+    end
+  end
 end
