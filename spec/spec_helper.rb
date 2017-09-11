@@ -1,5 +1,6 @@
 require "bundler/setup"
-require "rubocop/forbid_csv_read"
+require 'rubocop/rspec/cop_helper'
+require 'rubocop/forbid_csv_read'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
