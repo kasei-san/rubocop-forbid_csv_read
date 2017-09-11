@@ -1,28 +1,48 @@
 # Rubocop::ForbidCsvRead
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rubocop/forbid_csv_read`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem forbid `CSV.read` as an extension to RuboCop.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rubocop-forbid_csv_read'
+gem 'rubocop-forbid_csv_read' :github => 'kasei-san/rubocop-forbid_csv_read'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install rubocop-forbid_csv_read
-
 ## Usage
 
-TODO: Write usage instructions here
+You need to tell RuboCop to load the RSpec extension. There are three
+ways to do this:
+
+### RuboCop configuration file
+
+Put this into your `.rubocop.yml`.
+
+```
+require: rubocop-forbid_csv_read
+```
+
+Now you can run `rubocop` and it will automatically load the RuboCop RSpec
+cops together with the standard cops.
+
+### Command line
+
+```bash
+rubocop --require rubocop-forbid_csv_read
+```
+
+### Rake task
+
+```ruby
+RuboCop::RakeTask.new do |task|
+  task.requires << 'rubocop-forbid_csv_read'
+end
+```
 
 ## Development
 
@@ -33,7 +53,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rubocop-forbid_csv_read. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
 
 ## License
 
