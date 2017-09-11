@@ -7,7 +7,7 @@ This gem forbid `CSV.read` as an extension to RuboCop.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rubocop-forbid_csv_read' :github => 'kasei-san/rubocop-forbid_csv_read'
+gem 'rubocop-forbid_csv_read', git:'https://github.com/kasei-san/rubocop-forbid_csv_read'
 ```
 
 And then execute:
@@ -24,7 +24,7 @@ ways to do this:
 Put this into your `.rubocop.yml`.
 
 ```
-require: rubocop-forbid_csv_read
+require: rubocop/forbid_csv_read
 ```
 
 Now you can run `rubocop` and it will automatically load the RuboCop RSpec
@@ -33,14 +33,14 @@ cops together with the standard cops.
 ### Command line
 
 ```bash
-rubocop --require rubocop-forbid_csv_read
+rubocop --require rubocop/forbid_csv_read
 ```
 
 ### Rake task
 
 ```ruby
 RuboCop::RakeTask.new do |task|
-  task.requires << 'rubocop-forbid_csv_read'
+  task.requires << 'rubocop/forbid_csv_read'
 end
 ```
 
