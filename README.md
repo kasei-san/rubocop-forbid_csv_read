@@ -2,6 +2,8 @@
 
 This gem forbid `CSV.read` as an extension to RuboCop.
 
+_巨大なファイルを `CSV.read` してメモリを食い尽くすというやらかしを封じるためのcop_
+
 ## Installation
 
 Add this line to your application's Gemfile:
